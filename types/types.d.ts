@@ -1,6 +1,6 @@
-declare module 'code-editor-awg'{
+declare module 'awg-editor'{
   import {editor} from 'monaco-editor/esm/vs/editor/editor.api.js'
-  interface CodeEditor {
+  interface AwgEditorInstance {
     language:string
     setLanguage:(lan:string)=>void
     defineTheme:()=>void

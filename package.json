@@ -1,29 +1,29 @@
 {
-  "name": "monaco-code-editor",
-  "version": "1.0.1",
+  "name": "awg-editor",
+  "version": "1.0.0",
   "license": "MIT",
   "author": "国仪量子（合肥）技术有限公司(zlw@ciqtek.com)",
   "private": false,
-  "main": "dist/MonacoCodeEditor.ts",
-  "browser": "dist/MonacoCodeEditor.js",
+  "main": "dist/AwgEditor.ts",
+  "browser": "dist/AwgEditor.js",
   "types": "types/types.d.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c rollup.config.js"
   },
   "bugs": {
-    "url": "https://github.com/ciqtek/monaco-code-editor/issues"
+    "url": "https://github.com/ciqtek/awg-editor/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ciqtek/monaco-code-editor.git"
+    "url": "git+https://github.com/ciqtek/awg-editor.git"
   },
   "keywords": [
     "code",
     "editor",
     "monaco-editor"
   ],
-  "homepage": "https://github.com/ciqtek/monaco-code-edito#readme",
+  "homepage": "https://github.com/ciqtek/awg-editor#readme",
   "files": [
     "src",
     "types",

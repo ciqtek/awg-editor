@@ -1,11 +1,11 @@
 import  { IDisposable, editor, languages, IRange, IMarkdownString } from 'monaco-editor/esm/vs/editor/editor.api.js'
-import { CodeEditor, HoverParams, SuggestionsParams } from './type'
-export class MonacoCodeEditor implements CodeEditor {
+import { AwgEditorInstance, HoverParams, SuggestionsParams } from './type'
+export class AwgEditor implements AwgEditorInstance {
   private hoverMap:Map<string, IMarkdownString[]>
   private suggestion:IDisposable | null
   private hoverTips:IDisposable | null
   language:string
-  static instance:MonacoCodeEditor
+  static instance:AwgEditor
   constructor () {
     this.hoverMap = new Map()
     this.suggestion = null
@@ -16,7 +16,7 @@ export class MonacoCodeEditor implements CodeEditor {
 
   static getInstance () {
     if (!this.instance) {
-      this.instance = new MonacoCodeEditor()
+      this.instance = new AwgEditor()
     }
     return this.instance
   }

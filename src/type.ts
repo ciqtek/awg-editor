@@ -1,5 +1,5 @@
-import {editor} from 'monaco-editor'
-export interface CodeEditor {
+import {editor} from 'monaco-editor/esm/vs/editor/editor.api.js'
+export interface AwgEditorInstance {
   language:string
   setLanguage:(lan:string)=>void
   defineTheme:()=>void

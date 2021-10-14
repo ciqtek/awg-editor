@@ -8,9 +8,9 @@ function joinPath (filename) {
   return path.join(__dirname, filename);
 }
 const config = {
-  input: joinPath('src/MonacoCodeEditor.ts'),
+  input: joinPath('src/AwgEditor.ts'),
   output: {
-    file:'dist/MonacoCodeEditor.js',
+    file:'dist/AwgEditor.js',
     format: 'esm'
   },
   plugins: [
