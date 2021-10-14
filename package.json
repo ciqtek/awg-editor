@@ -4,9 +4,9 @@
   "license": "MIT",
   "author": "国仪量子（合肥）技术有限公司(zlw@ciqtek.com)",
   "private": false,
-  "main": "dist/AwgEditor.ts",
+  "main": "dist/AwgEditor.js",
   "browser": "dist/AwgEditor.js",
-  "types": "types/types.d.d.ts",
+  "types": "types/types.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c rollup.config.js"
