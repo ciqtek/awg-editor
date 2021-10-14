@@ -8,7 +8,7 @@ function joinPath (filename) {
   return path.join(__dirname, filename);
 }
 const config = {
-  input: joinPath('src/CodeEditor.ts'),
+  input: joinPath('src/MonacoCodeEditor.ts'),
   output: {
     file:'dist/MonacoCodeEditor.js',
     format: 'esm'
@@ -24,7 +24,7 @@ const config = {
     plugins: [["@babel/transform-runtime", { regenerator: true }]],
     babelHelpers: 'runtime',
    })],
-   external:['monaco-editor']
+   external:['monaco-editor/esm/vs/editor/editor.api.js']
 }
 
 export default config

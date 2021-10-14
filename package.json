@@ -1,15 +1,29 @@
 {
   "name": "monaco-code-editor",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "license": "MIT",
-  "author": "国仪量子（合肥）技术有限公司(zhouliwen@ciqtek.com)",
+  "author": "国仪量子（合肥）技术有限公司(zlw@ciqtek.com)",
   "private": false,
   "main": "dist/MonacoCodeEditor.ts",
   "browser": "dist/MonacoCodeEditor.js",
+  "types": "types/types.d.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c rollup.config.js"
   },
+  "bugs": {
+    "url": "https://github.com/ciqtek/monaco-code-editor/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ciqtek/monaco-code-editor.git"
+  },
+  "keywords": [
+    "code",
+    "editor",
+    "monaco-editor"
+  ],
+  "homepage": "https://github.com/ciqtek/monaco-code-edito#readme",
   "files": [
     "src",
     "types",

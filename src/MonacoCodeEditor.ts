@@ -1,4 +1,4 @@
-import  { IDisposable, editor, languages, IRange, IMarkdownString } from 'monaco-editor'
+import  { IDisposable, editor, languages, IRange, IMarkdownString } from 'monaco-editor/esm/vs/editor/editor.api.js'
 import { CodeEditor, HoverParams, SuggestionsParams } from './type'
 export class MonacoCodeEditor implements CodeEditor {
   private hoverMap:Map<string, IMarkdownString[]>
