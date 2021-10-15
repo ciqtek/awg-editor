@@ -1,25 +1,22 @@
 {
-  "comments": false,
-  "env": {
-    "main": {
-      "presets": [
-        ["env", {
-          "targets": { "node": 7 },
-          "modules": false
-        }],
-        "stage-0"
-      ]
-    },
-    "renderer": {
-      "presets": [
-        "@babel/preset-env"
-      ]
-    },
-    "web": {
-      "presets": [
-        "@babel/preset-env"
-      ]
-    }
-  },
-  "plugins": ["@babel/plugin-transform-runtime"]
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false,
+        "useBuiltIns": "usage",
+        "corejs": "2.6.10",
+        "targets": {
+          "ie": 10
+        }
+      }
+    ]
+  ],
+  "plugins": [
+      // 解决多个地方使用相同代码导致打包重复的问题
+      ["@babel/plugin-transform-runtime"]
+  ],
+  "ignore": [
+      "node_modules/**"
+    ]
 }
