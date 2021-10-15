@@ -1,10 +1,10 @@
 {
-  "name": "awg-editor",
-  "version": "1.0.0",
+  "name": "awg-code-editor",
+  "version": "1.0.1",
   "license": "MIT",
   "author": "国仪量子（合肥）技术有限公司(zlw@ciqtek.com)",
   "private": false,
-  "main": "AwgEditor.ts",
+  "main": "dist/AwgEditor.umd.js",
   "types": "types/types.d.ts",
   "module": "dist/AwgEditor.umd.js",
   "type": "module",
@@ -48,7 +48,6 @@
     "typescript": "^4.4.4"
   },
   "dependencies": {
-    "loadsh": "^0.0.4",
     "monaco-editor": "^0.29.1"
   }
 }

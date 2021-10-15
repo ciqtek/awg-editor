@@ -1,13 +1,20 @@
 ### 基于monaco-editor简单的二次封装
-**类的主要功能为：提供快速创建自定义代码提示与鼠标悬浮提示**
+
 <br/>
 
+**npm:** [https://www.npmjs.com/package/awg-code-editor](https://www.npmjs.com/package/awg-code-editor)
+<br/>
+<br/>
+
+<br/>
+
+**类的主要功能为：提供快速创建自定义代码提示与鼠标悬浮提示**
 #### Api:
 
 
 api | 描述 | 参数 | 返回值
 ---|---| ---| ---
-getInstance | 类的静态方法，用来获取实例，不要使用new方法去创建实例，使用getInstance保持单例调 | |AwgEditor
+getInstance | 类的静态方法，用来获取实例，不要使用new方法去创建实例，使用getInstance保持单例调 | |MonacoCodeEditor
 initSuggestions | 实例方法用来创建代码补全提示 |params :string[]\|SuggestionsParams[] 代码补全提示参数 | void
 initHover | 实例方法用来创建鼠标悬浮提示 | params: HoverParams]\|HoverParams[]   hover提示参数，formate:boolean 是否开启简单的格式化提示，默认值true| void
 dispose | 实例方法用来销毁上一次创建的提示，用于存在多次调用提示的情况 | | void
