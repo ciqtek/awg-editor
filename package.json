@@ -1,6 +1,6 @@
 {
-  "name": "awg-code-editor",
-  "version": "1.0.3",
+  "name": "awg-editor",
+  "version": "1.1.0",
   "license": "MIT",
   "author": "国仪量子（合肥）技术有限公司(zlw@ciqtek.com)",
   "private": false,
