@@ -1,4 +1,4 @@
-# @ciqtek/awg-editor
+# awg-editor
 
 
 ## 🚄 使用教程
@@ -6,13 +6,13 @@
 ### 安装
 
 ```bash
-  npm i install @ciqtek/awg-editor or yarn add @ciqtek/awg-editor
+  npm i install awg-editor or yarn add awg-editor
 ```
 
 ### 使用
 
 ```ts
-import { AwgEditor } from '@ciqtek/awg-editor'
+import { AwgEditor } from 'awg-editor'
 const editor = AwgEditor.getInstance()
 AwgEditor.initSuggestions(funName) // 创建代码补全提示
 AwgEditor.initHover(hoverHints) // 创建鼠标悬浮提示
