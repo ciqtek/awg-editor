@@ -1,5 +1,5 @@
-import monaco from 'monaco-editor'
-export interface AwgEditorInstance {
+import * as monaco from 'monaco-editor'
+export interface CodeEditor {
   language: string
   setLanguage: (lan: string) => void
   defineTheme: () => void

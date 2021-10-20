@@ -1,51 +1,294 @@
-### 基于monaco-editor简单的二次封装
-
-<br/>
-
-**npm:** [https://www.npmjs.com/package/awg-code-editor](https://www.npmjs.com/package/awg-code-editor)
-<br/>
-<br/>
-
-<br/>
-
-**类的主要功能为：提供快速创建自定义代码提示与鼠标悬浮提示**
-#### Api:
+# awg-code-editor
 
 
-api | 描述 | 参数 | 返回值
----|---| ---| ---
-getInstance | 类的静态方法，用来获取实例，不要使用new方法去创建实例，使用getInstance保持单例调 | |MonacoCodeEditor
-initSuggestions | 实例方法用来创建代码补全提示 |params :string[]\|SuggestionsParams[] 代码补全提示参数 | void
-initHover | 实例方法用来创建鼠标悬浮提示 | params: HoverParams]\|HoverParams[]   hover提示参数，formate:boolean 是否开启简单的格式化提示，默认值true| void
-dispose | 实例方法用来销毁上一次创建的提示，用于存在多次调用提示的情况 | | void
+## 🚄 使用教程
 
-#### type：
-```
-SuggestionsParams：{
-    
-    label:string 用户输入配置字符
-    text:string 补全内容
-    detail:string 提示描述
-    kind:'KeyWord' | 'Function '| 'Snippet' 提示类型
-}
+### 安装
 
-HoverParams： {
-    type：string 提示类型,默认method
-    value：string 提示内容
-    key：悬浮关键词
-}
+```bash
+  npm i install awg-code-editor or yarn add awg-code-editor
 ```
 
+### 使用
 
-#### 使用：
+```ts
+import { AwgEditor } from 'awg-code-editor'
+const editor = AwgEditor.getInstance()
+AwgEditor.initSuggestions(funName) // 创建代码补全提示
+AwgEditor.initHover(hoverHints) // 创建鼠标悬浮提示
+AwgEditor.initCodeEditor(dom) // 初始化编辑器
 
-```javascript
-import { MonacoCodeEditor } from './editorTools/CodeEditor'
-const dom = document.querySelector('#container')
-const editor = MonacoCodeEditor.getInstance()
-editor.initSuggestions(funName) // 创建代码补全提示
-editor.initHover(hoverHints) // 创建鼠标悬浮提示
-editor.initCodeEditor(dom) // 初始化编辑器
 ```
 
-注：在vue中不建议在组件mounted创建提示，这样可以避免多次创建提示
+### 📖 文档
+
+
+# Class: AwgEditor
+
+基于monaco-editor的二次封装，实现快速定义自定义提示和鼠标悬浮提示
+
+## Implements
+
+- `CodeEditor`
+
+## Table of contents
+
+### Properties
+
+- [hoverMap](AwgEditor.md#hovermap)
+- [hoverTips](AwgEditor.md#hovertips)
+- [language](AwgEditor.md#language)
+- [suggestion](AwgEditor.md#suggestion)
+- [instance](AwgEditor.md#instance)
+
+### Methods
+
+- [defineTheme](AwgEditor.md#definetheme)
+- [dispose](AwgEditor.md#dispose)
+- [formateHover](AwgEditor.md#formatehover)
+- [initCodeEditor](AwgEditor.md#initcodeeditor)
+- [initHover](AwgEditor.md#inithover)
+- [initSuggestions](AwgEditor.md#initsuggestions)
+- [setLanguage](AwgEditor.md#setlanguage)
+- [getInstance](AwgEditor.md#getinstance)
+
+## Properties
+
+### hoverMap
+
+• `Private` **hoverMap**: `Map`<`string`, `IMarkdownString`[]\>
+
+**`internal`**
+
+#### Defined in
+
+[AwgEditor.ts:9](https://github.com/ciqtek/awg-editor/blob/3fd8f3c/src/AwgEditor.ts#L9)
+
+___
+
+### hoverTips
+
+• `Private` **hoverTips**: ``null`` \| `IDisposable`
+
+#### Defined in
+
+[AwgEditor.ts:11](https://github.com/ciqtek/awg-editor/blob/3fd8f3c/src/AwgEditor.ts#L11)
+
+___
+
+### language
+
+• **language**: `string`
+
+#### Implementation of
+
+CodeEditor.language
+
+#### Defined in
+
+[AwgEditor.ts:12](https://github.com/ciqtek/awg-editor/blob/3fd8f3c/src/AwgEditor.ts#L12)
+
+___
+
+### suggestion
+
+• `Private` **suggestion**: ``null`` \| `IDisposable`
+
+#### Defined in
+
+[AwgEditor.ts:10](https://github.com/ciqtek/awg-editor/blob/3fd8f3c/src/AwgEditor.ts#L10)
+
+___
+
+### instance
+
+▪ `Static` **instance**: [`AwgEditor`](AwgEditor.md)
+
+#### Defined in
+
+[AwgEditor.ts:13](https://github.com/ciqtek/awg-editor/blob/3fd8f3c/src/AwgEditor.ts#L13)
+
+## Methods
+
+### defineTheme
+
+▸ **defineTheme**(): `void`
+
+自定义编辑器主题，默认使用AWG项目的主题
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+CodeEditor.defineTheme
+
+#### Defined in
+
+[AwgEditor.ts:46](https://github.com/ciqtek/awg-editor/blob/3fd8f3c/src/AwgEditor.ts#L46)
+
+___
+
+### dispose
+
+▸ **dispose**(): `void`
+
+取消原有的自定义提示与鼠标悬浮提示
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+CodeEditor.dispose
+
+#### Defined in
+
+[AwgEditor.ts:186](https://github.com/ciqtek/awg-editor/blob/3fd8f3c/src/AwgEditor.ts#L186)
+
+___
+
+### formateHover
+
+▸ **formateHover**(`txt`): `string`
+
+提供简单的格式化鼠标悬浮提示的能力
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `txt` | `string` | 格式化文字 |
+
+#### Returns
+
+`string`
+
+格式化后的文字
+
+#### Defined in
+
+[AwgEditor.ts:179](https://github.com/ciqtek/awg-editor/blob/3fd8f3c/src/AwgEditor.ts#L179)
+
+___
+
+### initCodeEditor
+
+▸ **initCodeEditor**(`editorDom`): ``null`` \| `IStandaloneCodeEditor`
+
+初始化编辑器
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `editorDom` | `HTMLElement` | monaco-editor的dom容器 |
+
+#### Returns
+
+``null`` \| `IStandaloneCodeEditor`
+
+monaco-editor create实例
+
+#### Implementation of
+
+CodeEditor.initCodeEditor
+
+#### Defined in
+
+[AwgEditor.ts:195](https://github.com/ciqtek/awg-editor/blob/3fd8f3c/src/AwgEditor.ts#L195)
+
+___
+
+### initHover
+
+▸ **initHover**(`params`, `formate?`): `void`
+
+初始化鼠标悬浮提示
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `params` | `HoverParams` \| `HoverParams`[] | `undefined` | 自定义鼠标悬浮提示参数 |
+| `formate` | `boolean` | `true` | 是否开启简单的提示格式化功能 |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+CodeEditor.initHover
+
+#### Defined in
+
+[AwgEditor.ts:126](https://github.com/ciqtek/awg-editor/blob/3fd8f3c/src/AwgEditor.ts#L126)
+
+___
+
+### initSuggestions
+
+▸ **initSuggestions**(`params`): `void`
+
+初始化自定义函数提示
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `params` | `string`[] \| `SuggestionsParams`[] | 自定义函数提示参数 |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+CodeEditor.initSuggestions
+
+#### Defined in
+
+[AwgEditor.ts:101](https://github.com/ciqtek/awg-editor/blob/3fd8f3c/src/AwgEditor.ts#L101)
+
+___
+
+### setLanguage
+
+▸ **setLanguage**(`lan`): `void`
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `lan` | `string` | 设置编辑器语言 |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+CodeEditor.setLanguage
+
+#### Defined in
+
+[AwgEditor.ts:40](https://github.com/ciqtek/awg-editor/blob/3fd8f3c/src/AwgEditor.ts#L40)
+
+___
+
+### getInstance
+
+▸ `Static` **getInstance**(): [`AwgEditor`](AwgEditor.md)
+
+**`return(awgeditor)`**
+
+#### Returns
+
+[`AwgEditor`](AwgEditor.md)
+
+#### Defined in
+
+[AwgEditor.ts:28](https://github.com/ciqtek/awg-editor/blob/3fd8f3c/src/AwgEditor.ts#L28)
